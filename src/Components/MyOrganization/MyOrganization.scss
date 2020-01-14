@@ -1,0 +1,36 @@
+
+
+
+.my-organization{
+    .react-tabs{
+        &__tab-list{
+            margin: 0;
+            border: none;
+            font-size: 12px;
+            line-height: 149.37%;
+            font-weight: 700;
+        }
+        .react-tabs__tab{
+            border: none;
+            border-radius: 0;
+            color: #B9B9B9;
+            &--selected{
+                border-top: 2px solid #F50634;
+                color: black;
+            }
+        } 
+        }
+    max-width: 736px;
+    margin: 0 auto;
+    margin-top: 56px;
+    &__title{
+        font-size: 40px;
+        line-height: 49px;
+        margin-bottom: 34px;
+    }
+    &__main{
+        padding: 10px 24px;
+        background-color: #ffffff;
+        height: 500px;
+    }
+}
