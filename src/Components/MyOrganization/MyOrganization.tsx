@@ -1,49 +1,71 @@
-import React,{useState,useEffect} from 'react';
-import {FormSeach,Suggestions} from '../FormSearch/FormSeach'
+import React, { useState, useEffect } from 'react';
+import { FormSeach, Suggestions } from '../FormSearch/FormSeach'
 import './MyOrganization.scss'
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import Add from '../../Images/add.png'
 import CardOrganization from '../Cards/CardOrganization'
-
+import CardSaveOrganization from '../Cards/CardSaveOrganization'
 const MyOrganization = () => {
-const [infoOrganization, setInfoOrganization] = useState<any>()
 
-
-const getInfoOrganization = (info:Suggestions) =>{
-  setInfoOrganization(info)
-}
+    const [infoOrganization, setInfoOrganization] = useState<any>()
+    const [saveCounter, setSaveCounter] = useState(0)
+    const [listSaveOrganization, setListSaveOrganization] = useState([])
+    
+    
+    const getInfoOrganization = (info: Suggestions) => {
+      
+      setInfoOrganization(info)
+    }
+  
+    const deleteOrganization = (id:string) =>{
+      const organization = JSON.parse(localStorage.getItem("storageOrganization")!) || ''
+      delete organization[id];
+       setListSaveOrganization(organization)   
+       setSaveCounter(Object.values(organization).length)
+      localStorage.setItem("storageOrganization", JSON.stringify(organization));
+    }
+  
+useEffect(() => {
+  const organization = JSON.parse(localStorage.getItem("storageOrganization")!) || '';
+  console.log()
+  setSaveCounter(Object.values(organization).length)
+  setListSaveOrganization((organization))   
+}, [saveCounter]);
+console.log(saveCounter)
   return (
-  
-  
     <main className="my-organization">
-        <h1 className="my-organization__title">Мои организации</h1>
-            
-                <Tabs>
-    <TabList>
-      <Tab>Новая организация</Tab>
-      <Tab>Сохраненные организации </Tab>
-    </TabList>
-    <main className="my-organization__main">
-    <TabPanel>
-   
-     <FormSeach getInfoOrganization={getInfoOrganization} />
-     {infoOrganization?<CardOrganization infoOrganization = {infoOrganization} />:
-       <div className="my-organization__clear">
-         <img src={Add} alt=""/>
-         <p>Для добавления новой организации<br/> введите ее название, ИНН или адрес.</p>
-       </div>
-     }
-    </TabPanel>
-    <TabPanel>
-      <h2>Any content 2</h2>
-     
-    </TabPanel>
+      <h1 className="my-organization__title">Мои организации</h1>
+
+      <Tabs>
+        <TabList>
+          <Tab>Новая организация</Tab>
+          <Tab>Сохраненные организации<span className='tab-counter'>{saveCounter?` (${saveCounter})`:''}</span></Tab>
+        </TabList>
+        <main className="my-organization__main">
+          <TabPanel>
+
+            <FormSeach getInfoOrganization={getInfoOrganization} />
+            {infoOrganization ? <CardOrganization infoOrganization={infoOrganization} setSaveCounter={setSaveCounter} /> :
+              <div className="my-organization__clear">
+                <img src={Add} alt="" />
+                <p>Для добавления новой организации<br /> введите ее название, ИНН или адрес.</p>
+              </div>
+            }
+          </TabPanel>
+          <TabPanel>
+            {Object.values(listSaveOrganization).map((saveOrganization:any)=>{
+              return(
+                <CardSaveOrganization saveOrganization={saveOrganization} deleteOrganization={deleteOrganization}/>
+              ) 
+            })}
+
+          </TabPanel>
+        </main>
+      </Tabs>
+
     </main>
-  </Tabs>
-            
-    </main>
-  
+
   );
 }
 

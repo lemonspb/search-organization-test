@@ -11,12 +11,23 @@
             font-weight: 700;
         }
         .react-tabs__tab{
+            padding: 10px 24px;
             border: none;
             border-radius: 0;
             color: #B9B9B9;
             &--selected{
                 border-top: 2px solid #F50634;
                 color: black;
+                .tab-counter{
+                    color:#F50634;
+                }
+            }
+            &:focus{
+                box-shadow: none;
+            }
+            &:focus::after{
+                height: 0;
+               
             }
         } 
         }
@@ -31,7 +42,7 @@
     &__main{
         padding: 10px 24px;
         background-color: #ffffff;
-        height: 500px;
+        min-height: 500px;
     }
     &__clear{
         display: flex;

@@ -5,5 +5,47 @@
         font-weight: 700;
         padding-bottom: 10px;
         border-bottom: 1px solid #DFDFDF;
+        margin-bottom: 40px;
     }
+    &__main{
+        justify-content: space-between;
+        display: flex;
+    }
+
+    &__right{
+        padding: 24px;
+        box-sizing: border-box;
+        background-color: #F8F8F8;
+        border-radius: 3px;
+    }
+    &__btn{
+        background-color: #F50634;
+        border-radius: 3px;
+        font-size: 18px;
+        line-height: 126.39%;
+        text-align: center;
+        color: #FFFFFF;
+        box-sizing: border-box;
+        padding: 10px 40px;
+        cursor: pointer;
+    }
+}
+.card-organization-info{
+    display: flex;
+    flex-direction: column;
+   &__label{
+    font-size: 14px;
+    line-height: 188.55%;
+    font-weight: 700;
+   } 
+   &__text{
+    font-size: 14px;
+    line-height: 188.55%;
+} 
+&--row{
+    flex-direction: row;
+  .card-organization-info__label{
+    padding-right: 10px;  
+  }
+}
 }
