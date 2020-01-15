@@ -4,6 +4,7 @@
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
+    margin-bottom: 50px;
     &__label{
         font-size: 14px;
         line-height: 188.55%;
@@ -14,6 +15,12 @@
         border: 1px solid #E5E5E5;
           box-sizing: border-box;
             border-radius: 3px;
+            &:focus{
+                outline: #FAE29F;
+                border: 1px solid #FAE29F;
+          
+            }
+           
     }
     &__suggestions {
         position: absolute;
@@ -41,11 +48,11 @@
 &__index{
 
     display: inline-block;
-    width:20%
+    width:30%
 }
 &__city{
     display: inline-block;
-    width: 20%;
+    width: 70%;
 
 }
 &:hover{

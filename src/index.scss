@@ -1,8 +1,11 @@
+@import './Fonts/fonts.scss';
+
 /// vars
 $base-color:#2B2829;
 $body-color:#E5E5E5;
 
 body{
+  font-family: Verdana,sans-serif;
   color: $base-color;
   margin: 0;
   background-color: $body-color;

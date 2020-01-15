@@ -33,4 +33,15 @@
         background-color: #ffffff;
         height: 500px;
     }
+    &__clear{
+        display: flex;
+        img{
+            margin-right: 32px;
+        }
+        p{
+            font-size: 14px;
+            line-height: 140%;
+            color: #777777;
+        }
+    }
 }
