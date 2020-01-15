@@ -10,6 +10,7 @@
     &__main{
         justify-content: space-between;
         display: flex;
+        margin-bottom: 32px;
     }
 
     &__right{
@@ -28,6 +29,17 @@
         box-sizing: border-box;
         padding: 10px 40px;
         cursor: pointer;
+        &--save{
+            padding-left: 0;
+            border: none;
+            background-color: transparent;
+            color: #B9B9B9;
+            outline: none;
+            span{
+                padding-left: 10px;
+            }
+
+        }
     }
 }
 .card-organization-info{

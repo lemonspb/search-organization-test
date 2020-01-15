@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './CardOrganization.scss'
-
+import {Checked} from '../../Svg/index'
 
 
 
@@ -23,6 +23,10 @@ const CardOrganization = (props: any) => {
         localStorage.setItem("storageOrganization", JSON.stringify(organization));
         props.setSaveCounter(Object.getOwnPropertyNames(organization).length)
     }
+
+    useEffect(() => {
+        props.checkedOrganization(props.infoOrganization.data.hid)
+    }, [props.isSaved,saveCardOrganization, props.listSaveOrganization]);
 
     return (
         <div className="card-organization">
@@ -55,7 +59,9 @@ const CardOrganization = (props: any) => {
                     </div>}
                 </div>
             </div>
-            <button className='card-organization__btn' onClick={() => saveCardOrganization(props.infoOrganization)}>Сохранить</button>
+
+            {props.isSaved?<button className='card-organization__btn card-organization__btn--save'><Checked /><span>Сохранено</span></button>:<button className='card-organization__btn' onClick={() => saveCardOrganization(props.infoOrganization)}><span>Сохранить</span></button>}
+            
         </div>
 
     );

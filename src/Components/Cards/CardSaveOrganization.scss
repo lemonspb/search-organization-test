@@ -1,0 +1,26 @@
+.card-save-organization{
+    box-sizing: border-box;
+    padding: 16px 15px;
+    border: 1px solid #DFDFDF;
+    border-radius: 3px;
+    &__header{
+        display: flex;
+        justify-content: space-between;
+    }
+    &__title{
+        font-size: 18px;
+        font-weight: 700;
+    }
+    &__delete{
+      cursor: pointer;
+     
+      svg{
+          fill:#2B2829;
+        transition: 200ms  fill ease-in-out;
+        &:hover{
+            fill: #F50634;
+        }   
+    }
+     
+    }
+}
