@@ -7,8 +7,7 @@ import Add from '../../Images/add.png'
 import CardOrganization from '../Cards/CardOrganization'
 import CardSaveOrganization from '../Cards/CardSaveOrganization'
 const MyOrganization = () => {
-
-    const [infoOrganization, setInfoOrganization] = useState<any>()
+    const [infoOrganization, setInfoOrganization] = useState<Suggestions>()
     const [saveCounter, setSaveCounter] = useState(0)
     const [listSaveOrganization, setListSaveOrganization] = useState([])
     const [isSaved, setIsSaved ] = useState(false)
@@ -36,10 +35,8 @@ const MyOrganization = () => {
         if(item === id){
           setIsSaved(false)
         }
-      
       })
-      delete organization[id];
-    
+      delete organization[id];  
        setListSaveOrganization(organization)   
        setSaveCounter(Object.values(organization).length)
       localStorage.setItem("storageOrganization", JSON.stringify(organization));
@@ -60,7 +57,7 @@ useEffect(() => {
           <Tab>Новая организация</Tab>
           <Tab>Сохраненные организации<span className='tab-counter'>{saveCounter?` (${saveCounter})`:''}</span></Tab>
         </TabList>
-        <main className="my-organization__main">
+        <div className="my-organization__main">
           <TabPanel>
 
             <FormSeach getInfoOrganization={getInfoOrganization} />
@@ -72,14 +69,14 @@ useEffect(() => {
             }
           </TabPanel>
           <TabPanel>
-            {Object.values(listSaveOrganization).map((saveOrganization:any)=>{
+            {Object.values(listSaveOrganization).map((saveOrganization:any,i:number)=>{
               return(
-                <CardSaveOrganization saveOrganization={saveOrganization} deleteOrganization={deleteOrganization}/>
+                <CardSaveOrganization saveOrganization={saveOrganization} deleteOrganization={deleteOrganization} key={i}/>
               ) 
             })}
 
           </TabPanel>
-        </main>
+        </div>
       </Tabs>
 
     </main>

@@ -1,8 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import './CardOrganization.scss'
 import {Checked} from '../../Svg/index'
-
-
 
 
 const CardOrganization = (props: any) => {
@@ -14,6 +12,7 @@ const CardOrganization = (props: any) => {
         organization[item.data.hid] = {
             id: item.data.hid,
             value: item.value,
+            kpp:  item.data.kpp,
             inn: item.data.inn,
             ogrn: item.data.ogrn,
             post: item.data.management && (item.data.management.post || ''),
@@ -27,7 +26,7 @@ const CardOrganization = (props: any) => {
     useEffect(() => {
         
         props.checkedOrganization(props.infoOrganization.data.hid)
-    }, [props.isSaved,saveCardOrganization]);
+    }, [props.isSaved,saveCardOrganization,props.checkedOrganization]);
 
     return (
         <div className="card-organization">

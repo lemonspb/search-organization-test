@@ -31,7 +31,7 @@ export function FormSeach(props:Props){
     useEffect(() => {
         const serviсes = new Serviсes();
         
-        serviсes.getResource(value).then((result)=>{
+        serviсes.getSuggest(value,'party').then((result)=>{
             setListSuggestions(result.suggestions.splice(0,3))
             
         })
