@@ -25,6 +25,10 @@
       &:focus::after {
         height: 0;
       }
+      @media screen  and (max-width:410px){
+          padding:6px 10px;
+          font-size: 10px;
+      }
     }
   }
   max-width: 736px;
