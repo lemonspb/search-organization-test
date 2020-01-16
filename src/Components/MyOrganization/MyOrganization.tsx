@@ -1,32 +1,24 @@
 import React, { useState, useEffect } from 'react';
-import { FormSeach, Suggestions } from '../FormSearch/FormSeach';
+import { FormSeach } from '../FormSearch/FormSeach';
 import './MyOrganization.scss';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import Add from '../../Images/add.png';
 import CardOrganization from '../Cards/CardOrganization';
-import CardSaveOrganization from '../Cards/CardSaveOrganization';
+import CardSaveOrganization from '../Cards/CardSavedOrganization';
+import { Suggestion,SavedOrganization } from '../../Types/Types';
 
 const MyOrganization = () => {
-  const [infoOrganization, setInfoOrganization] = useState<Suggestions>()
+  const [infoOrganization, setInfoOrganization] = useState<Suggestion>()
   const [saveCounter, setSaveCounter] = useState(0)
-  const [listSaveOrganization, setListSaveOrganization] = useState([])
+  const [listSaveOrganization, setListSaveOrganization] = useState<SavedOrganization[]>([])
   const [isSaved, setIsSaved] = useState(false)
 
-  const getInfoOrganization = (info: Suggestions) => {
 
-    setInfoOrganization(info)
-  }
-
-  const checkedOrganization = (id: any) => {
+  const checkedOrganization = (id: string) => {
     const organization = JSON.parse(localStorage.getItem("storageOrganization")!) || ''
     Object.keys(organization).forEach((item) => {
-      if (item === id) {
-        setIsSaved(true)
-      }
-      else {
-        setIsSaved(false)
-      }
+      setIsSaved(item === id)
     })
   }
 
@@ -36,7 +28,8 @@ const MyOrganization = () => {
       if (item === id) {
         setIsSaved(false)
       }
-    })
+    });
+    
     delete organization[id];
     setListSaveOrganization(organization)
     setSaveCounter(Object.values(organization).length)
@@ -60,17 +53,18 @@ const MyOrganization = () => {
         </TabList>
         <div className="my-organization__main">
           <TabPanel>
-
-            <FormSeach getInfoOrganization={getInfoOrganization} />
-            {infoOrganization ? <CardOrganization infoOrganization={infoOrganization} setSaveCounter={setSaveCounter} isSaved={isSaved} checkedOrganization={checkedOrganization} /> :
-              <div className="my-organization__clear">
+            <FormSeach setInfoOrganization={setInfoOrganization} />
+            {infoOrganization
+              ? <CardOrganization infoOrganization={infoOrganization} setSaveCounter={setSaveCounter}
+                isSaved={isSaved} checkedOrganization={checkedOrganization} />
+              : <div className="my-organization__clear">
                 <img src={Add} alt="" />
                 <p>Для добавления новой организации<br /> введите ее название, ИНН или адрес.</p>
               </div>
             }
           </TabPanel>
           <TabPanel>
-            {Object.values(listSaveOrganization).map((saveOrganization: any, i: number) => {
+            {Object.values(listSaveOrganization).map((saveOrganization, i) => {
               return (
                 <CardSaveOrganization saveOrganization={saveOrganization} deleteOrganization={deleteOrganization} key={i} />
               )
@@ -79,7 +73,6 @@ const MyOrganization = () => {
           </TabPanel>
         </div>
       </Tabs>
-
     </main>
 
   );

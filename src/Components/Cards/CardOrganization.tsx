@@ -1,12 +1,20 @@
 import React, { useEffect } from 'react';
-import './CardOrganization.scss'
-import {Checked} from '../../Svg/index'
+import './CardOrganization.scss';
+import {Checked} from '../../Svg/index';
+import { Suggestion } from '../../Types/Types';
+
+interface Props {
+    setSaveCounter:Function,
+    isSaved:Boolean,
+    infoOrganization: Suggestion 
+    checkedOrganization:Function,
+}
 
 
-const CardOrganization = (props: any) => {
+const CardOrganization = (props: Props) => {
 
 
-    const saveCardOrganization = (item: any) => {
+    const saveCardOrganization = (item:Suggestion) => {
 
         const organization = JSON.parse(localStorage.getItem("storageOrganization")!) || {};
         organization[item.data.hid] = {
@@ -15,10 +23,11 @@ const CardOrganization = (props: any) => {
             kpp:  item.data.kpp,
             inn: item.data.inn,
             ogrn: item.data.ogrn,
-            post: item.data.management && (item.data.management.post || ''),
-            name: item.data.management && (item.data.management.name || ''),
+            post: item.data.management?.post || '',
+            name: item.data.management?.name || '',
             address: item.data.address.value
         };
+
         localStorage.setItem("storageOrganization", JSON.stringify(organization));
         props.setSaveCounter(Object.getOwnPropertyNames(organization).length)
     }
@@ -39,8 +48,8 @@ const CardOrganization = (props: any) => {
 
                     </div>
                     <div className="card-organization-info">
-                        <div className="card-organization-info__label">{props.infoOrganization.data.management && (props.infoOrganization.data.management.post || '')}</div>
-                        <div className="card-organization-info__text">{props.infoOrganization.data.management && (props.infoOrganization.data.management.name || '')}</div>
+                        <div className="card-organization-info__label">{props.infoOrganization.data.management?.post || ''}</div>
+                        <div className="card-organization-info__text">{props.infoOrganization.data.management?.name || ''}</div>
 
                     </div>
                 </div>
@@ -60,7 +69,10 @@ const CardOrganization = (props: any) => {
                 </div>
             </div>
 
-            {props.isSaved?<button className='card-organization__btn card-organization__btn--save'><Checked /><span>Сохранено</span></button>:<button className='card-organization__btn' onClick={() => saveCardOrganization(props.infoOrganization)}><span>Сохранить</span></button>}
+            {props.isSaved?<button className='card-organization__btn card-organization__btn--save'>
+            <Checked /><span>Сохранено</span></button>:
+            <button className='card-organization__btn' 
+            onClick={() => saveCardOrganization(props.infoOrganization)}><span>Сохранить</span></button>}
             
         </div>
 
