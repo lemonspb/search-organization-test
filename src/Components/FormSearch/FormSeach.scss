@@ -1,69 +1,64 @@
-.form-search{
-    width:100%;
-    position: relative;
+.form-search {
+  width: 100%;
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 50px;
+  &__label {
+    font-size: 14px;
+    line-height: 188.55%;
+    margin-bottom: 3px;
+  }
+  &__input {
+    color: #777777;
+    font-size: 14px;
+    padding: 13px 16px;
+    border: 1px solid #e5e5e5;
     box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 50px;
-    &__label{
-        font-size: 14px;
-        line-height: 188.55%;
-        margin-bottom: 3px;
+    border-radius: 3px;
+    &:focus {
+      outline: #fae29f;
+      border: 1px solid #fae29f;
     }
-    &__input{
-        color:#777777;
-        font-size: 14px;
-        padding: 13px 16px;
-        border: 1px solid #E5E5E5;
-          box-sizing: border-box;
-            border-radius: 3px;
-            &:focus{
-                outline: #FAE29F;
-                border: 1px solid #FAE29F;
-          
-            }
-           
-    }
-    &__suggestions {
-        padding: 15px 0;
-        position: absolute;
-        z-index: 10;
-        background-color: #fff;
-        border: 1px solid #E5E5E5;
-        border-top:none;
-        box-sizing: border-box;
-        border-radius: 0px 0px 3px 3px;
-        top: 100%;
-        left: 0;
-        right: 0;
-}
+  }
+  &__suggestions {
+    padding: 15px 0;
+    position: absolute;
+    z-index: 10;
+    background-color: #fff;
+    border: 1px solid #e5e5e5;
+    border-top: none;
+    box-sizing: border-box;
+    border-radius: 0px 0px 3px 3px;
+    top: 100%;
+    left: 0;
+    right: 0;
+  }
 
-    .suggestion-item{
+  .suggestion-item {
     padding: 7px 19px;
     box-sizing: border-box;
     cursor: pointer;
     transition: 200ms, all ease-in-out;
-&__name{
-    font-size: 14px;
-    line-height: 140%;
-    width:100%;
-    font-weight: 700;
-    margin-bottom: 5px;
-
-}
-&__inn{
-    padding-right: 20px;
-    font-size: 12px;
-    display: inline-block;
-}
-&__city{
-    font-size: 12px;
-    display: inline-block;
-
-}
-&:hover{
-    background-color: #F8F8F8;
-}
-}
-
+    &__name {
+      font-size: 14px;
+      line-height: 140%;
+      width: 100%;
+      font-weight: 700;
+      margin-bottom: 5px;
+    }
+    &__inn {
+      padding-right: 20px;
+      font-size: 12px;
+      display: inline-block;
+    }
+    &__city {
+      font-size: 12px;
+      display: inline-block;
+    }
+    &:hover {
+      background-color: #f8f8f8;
+    }
+  }
 }

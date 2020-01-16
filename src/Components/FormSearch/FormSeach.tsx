@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState,useContext } from 'react';
 import './FormSeach.scss';
-import Serviсes from '../../Serviсes/fetch';
 import { Suggestion } from '../../Types/Types';
+import {OrganizationContext} from '../OrganizationContext/OrganizationContext';
 
 interface Props {
     setInfoOrganization: Function
@@ -12,13 +12,12 @@ export function FormSeach(props: Props) {
     const [value, setValue] = useState('')
     const [listSuggestions, setListSuggestions] = useState<Suggestion[]>([])
     const [isSelect, setIsSelect] = useState(false)
-
+    const {serviсes} = useContext(OrganizationContext) 
     useEffect(() => {
-        const serviсes = new Serviсes();
-        serviсes.getSuggest(value, 'party').then((result) => {
+        serviсes.getSuggest(value, 'party').then((result:any) => {
             setListSuggestions(result.suggestions.splice(0, 3))
         })
-    }, [value]);
+    }, [value,serviсes]);
 
     const changeInput = (e: React.FormEvent<EventTarget>): void => {
         let target = e.target as HTMLInputElement;
@@ -26,8 +25,8 @@ export function FormSeach(props: Props) {
         setIsSelect(false)
     }
 
-    const inpunDisableKey =(e:any)=>{
-        if(e.which === 13){
+    const inpunDisableKey = (e: any) => {
+        if (e.which === 13) {
             e.preventDefault()
         }
     }
@@ -41,7 +40,7 @@ export function FormSeach(props: Props) {
         <form className='form-search' >
             <label htmlFor="search" className='form-search__label'>Организация или ИП</label>
             <input id='search' className='form-search__input' placeholder='Введите название, ИНН или адрес организации'
-                autoComplete="off" onChange={changeInput} value={value}  onKeyPress={inpunDisableKey} />
+                autoComplete="off" onChange={changeInput} value={value} onKeyPress={inpunDisableKey} />
             {!isSelect && listSuggestions.length !== 0
                 ? <div className="form-search__suggestions" >
                     {listSuggestions.map((suggestion, i) => {
