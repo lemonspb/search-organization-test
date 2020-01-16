@@ -3,11 +3,13 @@ import ReactDOM from 'react-dom';
 import './index.scss';
 import App from './Components/App/App';
 import * as serviceWorker from './serviceWorker';
-import "normalize.css";
-import {OrganizationProvider} from './Components/OrganizationContext/OrganizationContext'
+import 'normalize.css';
+import {OrganizationProvider} from './Components/OrganizationContext/OrganizationContext';
+
+
 ReactDOM.render(
     <OrganizationProvider>
-                <App />
+    <App />
     </OrganizationProvider>, 
     document.getElementById('root'));
 

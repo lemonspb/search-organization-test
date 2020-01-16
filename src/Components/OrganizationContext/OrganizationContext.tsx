@@ -6,7 +6,7 @@ export const OrganizationContext = React.createContext({
   serviсes: new Serviсes()
 });
 
-export interface Props {
+ interface Props {
   children: React.ReactNode
 }
 
