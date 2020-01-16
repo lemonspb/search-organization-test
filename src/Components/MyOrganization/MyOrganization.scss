@@ -1,58 +1,57 @@
-
-
-
-.my-organization{
-    .react-tabs{
-        &__tab-list{
-            margin: 0;
-            border: none;
-            font-size: 12px;
-            line-height: 149.37%;
-            font-weight: 700;
-        }
-        .react-tabs__tab{
-            padding: 10px 24px;
-            border: none;
-            border-radius: 0;
-            color: #B9B9B9;
-            &--selected{
-                border-top: 2px solid #F50634;
-                color: black;
-                .tab-counter{
-                    color:#F50634;
-                }
-            }
-            &:focus{
-                box-shadow: none;
-            }
-            &:focus::after{
-                height: 0;
-               
-            }
-        } 
-        }
-    max-width: 736px;
-    margin: 0 auto;
-    margin-top: 56px;
-    &__title{
-        font-size: 40px;
-        line-height: 49px;
-        margin-bottom: 34px;
+.my-organization {
+  .react-tabs {
+    &__tab-list {
+      margin: 0;
+      border: none;
+      font-size: 12px;
+      line-height: 149.37%;
+      font-weight: 700;
     }
-    &__main{
-        padding: 32px 24px;
-        background-color: #ffffff;
-        min-height: 500px;
-    }
-    &__clear{
-        display: flex;
-        img{
-            margin-right: 32px;
+    .react-tabs__tab {
+      padding: 6px 24px;
+      border: none;
+      border-radius: 0;
+      color: #b9b9b9;
+      &--selected {
+        border-top: 2px solid #f50634;
+        color: black;
+        .tab-counter {
+          color: #f50634;
         }
-        p{
-            font-size: 14px;
-            line-height: 140%;
-            color: #777777;
-        }
+      }
+      &:focus {
+        box-shadow: none;
+      }
+      &:focus::after {
+        height: 0;
+      }
     }
+  }
+  max-width: 736px;
+  margin: 0 auto;
+  margin-top: 56px;
+  &__title {
+    font-weight: 700;
+    padding-left: 5px;
+    font-size: 40px;
+    line-height: 49px;
+    margin-bottom: 34px;
+  }
+  &__main {
+    padding: 32px 24px;
+    background-color: #ffffff;
+    min-height: 500px;
+  }
+  &__clear {
+    display: flex;
+    img {
+        object-fit: contain;
+      margin-right: 32px;
+    }
+    p {
+      font-size: 14px;
+      line-height: 140%;
+      color: #777777;
+    }
+  }
 }

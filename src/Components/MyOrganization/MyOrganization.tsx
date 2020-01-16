@@ -28,7 +28,6 @@ const MyOrganization = () => {
         setIsSaved(false)
       }
       })
-      console.log(Object.keys(organization))
     }
 
     const deleteOrganization = (id:string) =>{
@@ -65,7 +64,7 @@ useEffect(() => {
           <TabPanel>
 
             <FormSeach getInfoOrganization={getInfoOrganization} />
-            {infoOrganization ? <CardOrganization infoOrganization={infoOrganization} setSaveCounter={setSaveCounter} listSaveOrganization={listSaveOrganization} isSaved={isSaved} checkedOrganization={checkedOrganization}/> :
+            {infoOrganization ? <CardOrganization infoOrganization={infoOrganization}  setSaveCounter={setSaveCounter}  isSaved={isSaved} checkedOrganization={checkedOrganization}/> :
               <div className="my-organization__clear">
                 <img src={Add} alt="" />
                 <p>Для добавления новой организации<br /> введите ее название, ИНН или адрес.</p>

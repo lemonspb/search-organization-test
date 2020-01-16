@@ -25,8 +25,9 @@ const CardOrganization = (props: any) => {
     }
 
     useEffect(() => {
+        
         props.checkedOrganization(props.infoOrganization.data.hid)
-    }, [props.isSaved,saveCardOrganization, props.listSaveOrganization]);
+    }, [props.isSaved,saveCardOrganization]);
 
     return (
         <div className="card-organization">

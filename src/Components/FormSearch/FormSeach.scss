@@ -8,10 +8,12 @@
     &__label{
         font-size: 14px;
         line-height: 188.55%;
+        margin-bottom: 3px;
     }
     &__input{
+        color:#777777;
         font-size: 14px;
-        padding: 16px 13px;
+        padding: 13px 16px;
         border: 1px solid #E5E5E5;
           box-sizing: border-box;
             border-radius: 3px;
@@ -23,17 +25,21 @@
            
     }
     &__suggestions {
+        padding: 15px 0;
         position: absolute;
         z-index: 10;
         background-color: #fff;
-        box-shadow: 0 1px 6px 3px rgba(0,0,0,.1);
+        border: 1px solid #E5E5E5;
+        border-top:none;
+        box-sizing: border-box;
+        border-radius: 0px 0px 3px 3px;
         top: 100%;
         left: 0;
         right: 0;
 }
 
     .suggestion-item{
-    padding: 20px;
+    padding: 7px 19px;
     box-sizing: border-box;
     cursor: pointer;
     transition: 200ms, all ease-in-out;
@@ -42,17 +48,17 @@
     line-height: 140%;
     width:100%;
     font-weight: 700;
-    padding-bottom: 5px;
+    margin-bottom: 5px;
 
 }
-&__index{
-
+&__inn{
+    padding-right: 20px;
+    font-size: 12px;
     display: inline-block;
-    width:30%
 }
 &__city{
+    font-size: 12px;
     display: inline-block;
-    width: 70%;
 
 }
 &:hover{
