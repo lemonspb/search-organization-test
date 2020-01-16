@@ -33,7 +33,6 @@ const CardOrganization = (props: Props) => {
     }
 
     useEffect(() => {
-        
         props.checkedOrganization(props.infoOrganization.data.hid)
     }, [props.isSaved,saveCardOrganization,props.checkedOrganization]);
 

@@ -26,6 +26,11 @@ export function FormSeach(props: Props) {
         setIsSelect(false)
     }
 
+    const inpunDisableKey =(e:any)=>{
+        if(e.which === 13){
+            e.preventDefault()
+        }
+    }
     const selectSuggestion = (suggestion: Suggestion) => {
         setValue(suggestion.value)
         setIsSelect(true)
@@ -36,7 +41,7 @@ export function FormSeach(props: Props) {
         <form className='form-search' >
             <label htmlFor="search" className='form-search__label'>Организация или ИП</label>
             <input id='search' className='form-search__input' placeholder='Введите название, ИНН или адрес организации'
-                autoComplete="off" onChange={changeInput} value={value} />
+                autoComplete="off" onChange={changeInput} value={value}  onKeyPress={inpunDisableKey} />
             {!isSelect && listSuggestions.length !== 0
                 ? <div className="form-search__suggestions" >
                     {listSuggestions.map((suggestion, i) => {
