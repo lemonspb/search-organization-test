@@ -10,7 +10,7 @@ export interface Props {
   children: React.ReactNode
 }
 
-export const OrganizationProvider: React.FC<Props> = (children) => {
+export const OrganizationProvider: React.FC<Props> = (props) => {
 
   const serviсes = new Serviсes()
 
@@ -20,7 +20,7 @@ export const OrganizationProvider: React.FC<Props> = (children) => {
         serviсes
       }}
     >
-      {children}
+      {props.children}
     </OrganizationContext.Provider>
   );
 };
