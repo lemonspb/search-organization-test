@@ -5,8 +5,6 @@ import './CardSaveOrganization.scss'
 
 
 
-
-
 const CardSaveOrganization = (props: any) => {
 
 const [isVisibleMore, setIsVisibleMore] =  useState(false)

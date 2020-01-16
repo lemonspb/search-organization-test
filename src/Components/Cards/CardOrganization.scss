@@ -1,83 +1,90 @@
-.card-organization{
-    &__name{
+.card-organization {
+    &__name {
         font-size: 24px;
         line-height: 188.55%;
         font-weight: 700;
-        
-        border-bottom: 1px solid #DFDFDF;
+        border-bottom: 1px solid #dfdfdf;
         margin-bottom: 20px;
     }
-    &__main{
+
+    &__main {
         justify-content: space-between;
         display: flex;
         margin-bottom: 32px;
-        @media screen  and (max-width: 640px) {
+        @media screen and (max-width: 640px) {
             flex-direction: column;
-
         }
     }
-&__left{
-    @media screen  and (max-width: 640px) {
-        margin-bottom: 20px;
-        
-    }
-}
 
-    &__right{
+    &__left {
+        @media screen and (max-width: 640px) {
+            margin-bottom: 20px;
+        }
+    }
+
+    &__right {
         padding: 24px;
         box-sizing: border-box;
-        background-color: #F8F8F8;
+        background-color: #f8f8f8;
         border-radius: 3px;
     }
-    &__btn{
-        background-color: #F50634;
+
+    &__btn {
+        background-color: #f50634;
         border-radius: 3px;
         font-size: 18px;
         line-height: 126.39%;
         text-align: center;
-        color: #FFFFFF;
+        color: #ffffff;
         box-sizing: border-box;
         padding: 10px 40px;
         cursor: pointer;
         font-weight: 700;
         border: none;
-        
-        &--save{
+
+        &--save {
             padding-left: 0;
             border: none;
             background-color: transparent;
-            color: #B9B9B9;
+            color: #b9b9b9;
             outline: none;
-            span{
+
+            span {
                 padding-left: 10px;
             }
-
         }
     }
 }
-.card-organization-info{
+
+.card-organization-info {
     display: flex;
     flex-direction: column;
-    &:not(:last-child){
+
+    &:not(:last-child) {
         margin-bottom: 18px;
     }
-   &__label{
-    font-size: 14px;
-    line-height: 188.55%;
-    font-weight: 700;
-   } 
-   &__text{
-    font-size: 14px;
-    line-height: 188.55%;
-} 
-&--row{
-    margin: 0;
-    flex-direction: row;
-    &:not(:last-child){
-        margin-bottom: 0px;
+
+    &__label {
+        font-size: 14px;
+        line-height: 188.55%;
+        font-weight: 700;
     }
-  .card-organization-info__label{
-    padding-right: 10px;  
-  }
-}
+
+    &__text {
+        font-size: 14px;
+        line-height: 188.55%;
+    }
+
+    &--row {
+        margin: 0;
+        flex-direction: row;
+
+        &:not(:last-child) {
+            margin-bottom: 0px;
+        }
+
+        .card-organization-info__label {
+            padding-right: 10px;
+        }
+    }
 }
